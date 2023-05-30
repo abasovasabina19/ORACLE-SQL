@@ -1,0 +1,56 @@
+CREATE TABLE uni_universities (
+    id  NUMBER PRIMARY KEY,
+    name VARCHAR2(100)
+);
+
+CREATE TABLE uni_faculties (
+    id   NUMBER PRIMARY KEY,
+    uni_university_id NUMBER,
+    name  VARCHAR2(100),
+    CONSTRAINT uni_faculties_uni_university_id_fk FOREIGN KEY ( uni_university_id )
+        REFERENCES uni_universities ( id )
+);
+
+CREATE TABLE uni_groups (
+    id  NUMBER PRIMARY KEY,
+    uni_faculty_id NUMBER,
+    name  VARCHAR2(100),
+    CONSTRAINT uni_groups_uni_faculty_id_fk FOREIGN KEY ( uni_faculty_id )
+        REFERENCES uni_faculties ( id )
+);
+
+
+CREATE TABLE uni_subjects (
+    id   NUMBER PRIMARY KEY,
+    name VARCHAR2(100)
+);
+
+CREATE TABLE uni_students (
+    id    NUMBER PRIMARY KEY,
+    first_name  VARCHAR2(100) NOT NULL,
+    last_name   VARCHAR2(100) NOT NULL,
+    birthdate    DATE NOT NULL,
+    uni_groups_id NUMBER,
+    CONSTRAINT uni_students_uni_groups_id_fk FOREIGN KEY ( uni_groups_id )
+        REFERENCES uni_groups ( id )
+);
+
+CREATE TABLE uni_teachers (
+    id   NUMBER PRIMARY KEY,
+    first_name  VARCHAR2(100) NOT NULL,
+    last_name   VARCHAR2(100) NOT NULL,
+    birthdate  DATE NOT NULL,
+    uni_subjects_id NUMBER,
+    CONSTRAINT uni_teachers_uni_subjects_id_fk FOREIGN KEY ( uni_subjects_id )
+        REFERENCES uni_subjects ( id )
+);
+
+
+CREATE TABLE uni_groups_teachers (
+    uni_teachers_id NUMBER,
+    uni_groups_id   NUMBER,
+    CONSTRAINT uni_groups_teachers_uni_teachers_id_fk FOREIGN KEY ( uni_teachers_id )
+        REFERENCES uni_teachers ( id ),
+    CONSTRAINT uni_groups_teachers_uni_groups_id_fk FOREIGN KEY ( uni_groups_id )
+        REFERENCES uni_groups ( id )
+);
