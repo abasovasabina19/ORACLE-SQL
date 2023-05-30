@@ -1,0 +1,53 @@
+--2.Incomplete - Practical: Write a SQL query to fetch the details of the 'Sales' department.
+
+
+select* from departments
+where department_name='Sales' 
+;
+
+--1.Problem-Solving: How would you find the employee with the highest salary who doesn't have a manager?
+
+select *from employees;
+
+-- Can be found in two different ways
+--FIRST
+select first_name, last_name ,max(salary) as max_salary, manager_id
+from employees
+where manager_id IS NULL
+group by first_name, last_name, manager_id
+order by max(salary) desc
+FETCH FIRST ROWS ONLY;
+
+--SECOND
+select first_name, last_name ,salary, manager_id
+from employees
+where manager_id IS NULL
+order by salary desc
+FETCH FIRST ROWS ONLY;
+
+--2. **Complete - Practical:** Write a SQL query to fetch the name of the employee who earns the lowest salary in the company.
+--*Hint: Use the MIN function on salary column.*
+--FIRST
+select first_name, last_name ,MIN(salary) as min_salary
+from employees
+group by first_name, last_name
+order by MIN(salary) asc
+FETCH FIRST ROWS ONLY;
+
+--SECOND
+select first_name, last_name ,salary
+from employees
+order by salary asc
+FETCH FIRST ROWS ONLY;
+
+
+ --3.Incomplete - Practical: Write a SQL query to fetch the highest salary in each department.
+ 
+ select  d.department_name , MAX(e.salary) as max_salary
+ from employees e
+ JOIN departments d
+ on e.department_id=d.department_id 
+ GROUP BY d.department_name;
+ 
+ --THE END--
+ 
