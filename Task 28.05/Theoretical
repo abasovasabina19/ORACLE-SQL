@@ -1,0 +1,52 @@
+--1.Theoretical: Explain the concept of a "Foreign Key" in SQL.
+
+--The FOREIGN KEY constraint is used to prevent actions that would destroy links between tables. 
+--A FOREIGN KEY is a field (or collection of fields) in one table, that refers to the PRIMARY KEY in another table.
+--The table with the foreign key is called the child table, and the table with the primary key is called the referenced or parent table.
+
+--Persons Table--
+
+--PersonID	      LastName	   FirstName	 Age
+--   1	            Sabina	      Abasova	  18              
+--   2	            Arzu	      Hasanova	  20  
+--   3            	Narmin	      Muradova    17
+
+--Orders Table--
+
+--OrderID	OrderNumber  	PersonID
+--   1	         1234	      3
+--   2	         3345	      3
+--   3	         6753         2
+--   4	         2963         1
+
+
+--Notice that the "PersonID" column in the "Orders" table points to the "PersonID" column in the "Persons" table.
+--The "PersonID" column in the "Persons" table is the PRIMARY KEY in the "Persons" table.
+--The "PersonID" column in the "Orders" table is a FOREIGN KEY in the "Orders" table.
+--The FOREIGN KEY constraint prevents invalid data from being inserted into the foreign key column, because it has to be one of the values contained in the parent table.
+
+
+-- ORACLE SQL FOREIGN KEY on CREATE TABLE--
+
+CREATE TABLE Orders (
+    OrderID int  PRIMARY KEY,
+    OrderNumber int NOT NULL,
+    PersonID int,
+    CONSTRAINT FK_PersonOrder FOREIGN KEY (PersonID)
+    REFERENCES Persons(PersonID)
+);
+
+
+--ORACLE SQL FOREIGN KEY on ALTER TABLE--
+
+ALTER TABLE Orders
+ADD CONSTRAINT FK_PersonOrder
+FOREIGN KEY (PersonID) REFERENCES Persons(PersonID);
+
+--DROP a FOREIGN KEY Constraint--
+
+ALTER TABLE Orders
+DROP CONSTRAINT FK_PersonOrder;
+--
+
+
