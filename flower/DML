@@ -1,0 +1,71 @@
+insert into fl_customers values (1,'Khumar','Mirzayeva','Baku',0519088201);
+COMMIT;
+insert into fl_customers values (2,'Madina','Qulizada','Baku',0508752252);
+COMMIT;
+insert into fl_customers values (3,'Sabina','Abasova','Baku',0709721005);
+COMMIT;
+insert into fl_customers values (4,'Fidan','Tarishli','Baku',0503625575);
+COMMIT;
+
+select *from fl_customers;
+
+insert into fl_suppliers values(1,'Arif','Lankaran');
+COMMIT;
+insert into fl_suppliers values(2,'Baxtiyar','Xachmaz');
+COMMIT;
+insert into fl_suppliers values(3,'Ceyran','Gandja');
+COMMIT;
+insert into fl_suppliers values(4,'Gunay','Baku');
+COMMIT;
+
+select*from fl_suppliers;
+
+
+
+
+
+insert into  fl_branches values(1,'Albert Aqarunov kuchesi',0505394393);
+COMMIT;
+insert into  fl_branches values(2,'Ash?q Molla Cüm? kuchesi',0105121316);
+COMMIT;
+insert into  fl_branches values(3,'Akim Abbasov kuchesi',0702004537);
+COMMIT;
+insert into  fl_branches values(4,'Afiy?ddin C?lilov kuchesi',0507994393);
+COMMIT;
+
+
+select *from fl_branches;
+
+insert into fl_flowers values(1,'Q?z?lgul',15,3);
+COMMIT;
+insert into fl_flowers values(2,'Lavanda',10,1);
+COMMIT;
+insert into fl_flowers values(3,'Lale',5,2);
+COMMIT;
+insert into fl_flowers values(4,'Tulpan',20,4);
+COMMIT;
+
+select *from fl_flowers;
+
+insert into fl_orders values(1,3,4,TO_DATE('2023-05-29', 'YYYY-MM-DD'));
+COMMIT;
+insert into fl_orders values(2,1,2,TO_DATE('2023-05-28', 'YYYY-MM-DD'));
+COMMIT;
+insert into fl_orders values(3,4,1,TO_DATE('2023-05-27', 'YYYY-MM-DD'));
+COMMIT;
+insert into fl_orders values(4,2,3,TO_DATE('2023-05-26', 'YYYY-MM-DD'));
+COMMIT;
+
+select *from fl_orders;
+
+insert into fl_orderdetails values(1,3,5);
+COMMIT;
+insert into fl_orderdetails values(2,4,8);
+COMMIT;
+insert into fl_orderdetails values(3,1,1);
+COMMIT;
+insert into fl_orderdetails values(4,2,4);
+COMMIT;
+
+select *from fl_orderdetails;
+
