@@ -12,19 +12,20 @@ select*from jobs;
 select *from countries;
 select *from locations;
 
-
-
+--It can be written in 2 ways--
+--FIRST--
 select e.employee_id, e.first_name, d.department_name, j.job_title, c.country_name
-from employees e
+from countries c
+RIGHT JOIN locations l
+ON l.country_id=c.country_id
 INNER JOIN departments d
+ON l.location_id=d.location_id
+INNER JOIN employees e
 ON e.department_id=d.department_id
 INNER JOIN jobs j
-ON e.job_id=j.job_id 
-INNER JOIN locations l 
-ON l.location_id=d.location_id
-RIGHT JOIN countries c 
-ON c.country_id=l.country_id;      --it also shows countries without employees, but it was written to include employees without countries.--
---Accordingly, LEFT JOIN should be used--
+ON e.job_id=j.job_id; 
+
+--SECOND--
 
 select e.employee_id, e.first_name, d.department_name, j.job_title, c.country_name
 from employees e
