@@ -23,4 +23,16 @@ ON e.job_id=j.job_id
 INNER JOIN locations l 
 ON l.location_id=d.location_id
 RIGHT JOIN countries c 
+ON c.country_id=l.country_id;      --it also shows countries without employees, but it was written to include employees without countries.--
+--Accordingly, LEFT JOIN should be used--
+
+select e.employee_id, e.first_name, d.department_name, j.job_title, c.country_name
+from employees e
+INNER JOIN departments d
+ON e.department_id=d.department_id
+INNER JOIN jobs j
+ON e.job_id=j.job_id 
+INNER JOIN locations l 
+ON l.location_id=d.location_id
+LEFT JOIN countries c 
 ON c.country_id=l.country_id;
