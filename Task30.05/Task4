@@ -1,0 +1,17 @@
+--Description: Retrieve the employee ID, first name, department name, job title, --
+--and country name of all employees along with their corresponding department, job title, and country information. Include employees without a department.--
+--Tables: EMPLOYEES, DEPARTMENTS, JOBS, COUNTRIES--
+--Hint: Use INNER JOIN to combine the EMPLOYEES, DEPARTMENTS, JOBS, and COUNTRIES tables on the corresponding columns.--
+
+select *from employees;
+select *from departments;
+select*from jobs;
+select *from countries;
+select *from locations;
+
+SELECT  e.employee_id, e.first_name, d.department_name, j.job_title, c.country_name
+FROM    EMPLOYEES e
+  LEFT JOIN DEPARTMENTS d ON e.department_id = d.department_id
+  INNER JOIN JOBS j ON e.job_id = j.job_id
+  INNER JOIN LOCATIONS L ON d.location_id=l.location_id
+  INNER JOIN COUNTRIES c ON c.country_id = l.country_id;
