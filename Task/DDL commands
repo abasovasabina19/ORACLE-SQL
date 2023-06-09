@@ -11,7 +11,7 @@ user_phone number
 
 ALTER TABLE  FL_CUSTOMERS
 
-  ADD first_name varchar2(100);
+  ADD name varchar2(100);
   
   --DROP
   
