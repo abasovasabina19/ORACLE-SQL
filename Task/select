@@ -1,0 +1,26 @@
+SELECT *FROM employees;
+select *from departments;
+ 
+select employee_id, first_name, last_name 
+from employees 
+where  manager_id IS null;
+ 
+ 
+ select employee_id, first_name, last_name , max(salary)
+from employees 
+group by employee_id, first_name, last_name
+order by max(salary);
+
+select employee_id, first_name, last_name , max(salary)
+from employees 
+group by employee_id, first_name, last_name
+having max(salary)>1000;
+
+select e.employee_id, e.first_name, e.last_name , max(salary), d.department_name
+from employees e
+join departments d 
+on e.department_id=d.department_id
+group by e.employee_id, e.first_name, e.last_name, d.department_name
+order by max(salary)
+FETCH FIRST ROWS ONLY;
+
