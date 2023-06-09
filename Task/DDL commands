@@ -1,0 +1,26 @@
+--CREATE 
+create table USERS (
+username varchar(100),
+user_id  int  ,
+user_phone number
+)
+
+
+--ALTER 
+ select *from FL_CUSTOMERS;
+
+ALTER TABLE  FL_CUSTOMERS
+
+  ADD customer_name varchar2(100);
+  
+  --DROP
+  
+  DROP  TABLE USERS;
+  
+  --CONSTRAINSTS
+  create table USERS (
+username varchar(100),
+user_id  int PRIMARY KEY ,
+user_phone number
+)
+
