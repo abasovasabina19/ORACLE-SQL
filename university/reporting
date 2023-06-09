@@ -9,8 +9,8 @@ select * from  uni_universities u
        join uni_groups_teachers gt on gt.uni_groups_id=g.id
        join uni_students s on  s.uni_groups_id=g.id
        join uni_teachers t  on  t.id=gt.uni_teachers_id
-       join uni_subjects  sb on sb.id=t.uni_subjects_id
-       join uni_groups_teachers gt on  gt.uni_teachers_id=t.id;
+       join uni_subjects  sb on sb.id=t.uni_subjects_id;
+       
        
 --Sql query for showing student'data along with his/her group and faculty name
 
