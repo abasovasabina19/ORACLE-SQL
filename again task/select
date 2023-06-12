@@ -1,0 +1,13 @@
+SELECT *FROM EMPLOYEES;
+select *from departments;
+select*from jobs;
+SELECT  employee_id, first_name, last_name from employees;
+
+select department_name, location_id from departments 
+where department_id between 30 and 50
+FETCH FIRST ROWS ONLY ;
+
+select job_title, sum(max_salary), avg(min_salary) from jobs
+group by job_title
+HAVING SUM(max_salary)>10000 or avg(min_salary)>10000
+order by sum(max_salary) asc, avg(min_salary) desc;
