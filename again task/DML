@@ -1,0 +1,13 @@
+select *from musteri;
+
+INSERT INTO musteri(ad, id, musteri_soyad) 
+values( 'SEBINE', 1, 'Abasova');
+COMMIT;
+
+UPDATE MUSTERI
+SET AD = 'Leman'
+WHERE id = 1;
+COMMIT;
+
+DELETE FROM MUSTERI WHERE id=1;
+COMMIT;
