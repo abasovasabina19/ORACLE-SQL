@@ -1,0 +1,21 @@
+create table sirket 
+( ad varchar2(100) 
+unvan varchar2(100),
+id int  PRIMARY key ,
+CONSTRAINT FK_sirketmusteri FOREIGN KEY (id)
+    REFERENCES sirket(id)
+);
+
+create table musteri (
+ad varchar2(100),
+id int not null);
+
+create table sifarisler
+(id int unique not null,
+vaxt date) ;
+
+
+alter table musteri 
+add musteri_soyad varchar(2) ;
+
+DROP TABLE musteri;
