@@ -1,0 +1,10 @@
+--AGREGATE FUNCTIONS: count, sum, min,max,avg,median
+select *from employees;
+select max(salary) , count (employee_id), avg(salary), min(salary), median(manager_id), sum(manager_id)from employees;
+--max en boyuk salary cixarir, 
+--count employyee_idleri sayir,
+--avg ortalama salary cixarir , 
+--min en kicik salary cixarir,
+--median ortadaki manager_idni cixarir, burada sert idler tek sayda olmalidir, 
+--eyer cut sayda olursa ortadaki iki id deyeri toplanir sonra 2ye bolunur ve table yerlesdirilir.
+--sum manager_idleri cemleyir.
