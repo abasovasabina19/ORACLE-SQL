@@ -1,0 +1,26 @@
+--1.Alter table: Add a column 'Salary' of number type to the 'Employee_Details' table.
+alter table Employee_Details 
+add salary int;
+commit;
+select *from employees
+--2.Update operation: Update the 'Employees' table to set the 'commission_pct' to 0.2 for all employees with the 'job_id' of 'SA_REP'.
+update  Employees 
+set commission_pct=0.2 
+where job_id='SA-REP' 
+
+describe employees;
+
+--3.Aggregate Function: Write a query to find the average salary in the 'Employees' table.
+select avg(salary )from employees;
+
+--4.Date Function: Write a query to return the hire date and number of years since hire for each employee in the 'Employees' table. Use the SYSDATE and EXTRACT functions.
+
+SELECT hire_date,
+EXTRACT(YEAR FROM SYSDATE) - EXTRACT(YEAR FROM hire_date) AS years_since_hire
+FROM Employees;
+
+--5.Left Join: Write a query to get all employees and their department names, including those not assigned to a department.
+select e.employee_id, e.first_name, e.last_name ,d.department_name
+from employees e
+left join departments d
+on e.department_id=d.department_id;
