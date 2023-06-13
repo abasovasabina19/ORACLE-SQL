@@ -1,0 +1,88 @@
+reporting--1.Customer Reports
+--Total Customers:
+select count(customer_id) as total_customers from fl_customers;
+select count(*) as total_customers from fl_customers; 
+
+--Customers per Branch
+select b.location as branch_location, count(c.customer_id) as customer_count
+from fl_customers c
+join fl_orders o
+on c.customer_id=o.customer_id
+join fl_branches b
+on o.branch_id=b.branch_id
+group by b.location;
+
+
+--2.Order Reports
+--Orders per Customer
+select c.first_name, count(o.order_id) as order_count
+from fl_customers c
+join fl_orders o
+on c.customer_id=o.customer_id
+group by c.first_name;
+
+--Orders per Branch
+select b.location as branch_location, count(o.order_id) as order_count
+from fl_branches b
+join fl_orders o
+on b.branch_id=o.branch_id
+group by b.location;
+
+--Orders per day
+select order_date, count(order_id) as order_count
+from fl_orders
+group by order_date;
+
+--3.Flower Reports
+--Most popular flowers
+select * from(select f.flower_name, count(od.quantity) as order_quantity
+from fl_flowers f
+join fl_orderdetails od on f.flower_id= od.flower_id
+group by f.flower_name
+order by 2 desc)
+where rownum<2
+;
+
+--Flowers per supplier
+select s.name, count(f.flower_id) as flower_count
+from fl_suppliers s
+join fl_flowers f
+on s.supplier_id=f.supplier_id
+group by s.name;
+
+
+--4.Supplier Reports
+--Suppliers per flower
+select f.flower_name, count(s.supplier_id) as supplier_count
+from fl_flowers f
+join fl_suppliers s
+on f.supplier_id=s.supplier_id
+group by f.flower_name;
+--count
+
+select f.flower_name, s.name
+from fl_flowers f
+join fl_suppliers s
+on f.supplier_id=s.supplier_id;
+--name
+
+
+--5.Branch Reports
+--Most active branches
+select b.location as branch_location, count(o.order_id) as order_count
+from fl_branches b
+join fl_orders o
+on b.branch_id=o.order_id
+group by b.location
+order by 2 desc;
+
+
+
+
+
+
+
+
+
+
+
