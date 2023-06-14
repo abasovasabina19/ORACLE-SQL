@@ -1,0 +1,15 @@
+select salary from employees where salary between 2000 and 8000
+union
+select salary from employees where salary between 2000 and 10000;
+
+select salary from employees where salary between 6000 and 8000
+union all
+select salary from employees where salary between 2000 and 120000;
+
+select salary from employees where salary between 2000 and 76000
+minus
+select salary from employees where salary between 8000 and 10000;
+
+select salary from employees where salary between 8000 and 17000
+intersect
+select salary from employees where salary between 2000 and 10000
