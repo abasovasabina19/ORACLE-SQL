@@ -9,7 +9,7 @@ End_Date date ,
 Manager_id number) ;
 
 --2. Delete operation: Delete from 'Employees' where 'first_name' is 'John' and 'last_name' is 'Doe'.
-delete from "Employees" where first_name='John' and last_name='Doe';
+delete from Employees where first_name='John' and last_name='Doe';
 commit;
 
 --3.Select with sorting: Write a SELECT statement to get all the employees in descending order of hire date.
