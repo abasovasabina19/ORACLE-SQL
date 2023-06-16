@@ -1,0 +1,23 @@
+--Conversion functions
+
+select *from employees
+
+select to_char(salary, '999,9') from employees; 
+
+select  to_date(hire_date, 'dd-mm-yyyy') from employees
+
+ select  salary  ,
+ case 
+ when salary >1000 then 'higt'
+ else 'low'
+ end as x
+ from employees; 
+ 
+ select NVL(discount, '0') from sales_data; 
+ 
+--number yadmdan cixib dollari nece gosteririk numunesi 
+--nullif sintaksisin unutmusam 
+--decode, cast hech islememisem 
+ 
+
+
