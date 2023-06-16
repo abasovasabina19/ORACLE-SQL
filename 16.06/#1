@@ -1,0 +1,11 @@
+--Aggregate functions 
+
+select count(employee_id) as "count employee" , salary from employees 
+group by salary;
+
+select   avg(min_salary), sum( max_salary) from jobs;
+
+select  first_name , last_name, min(salary) , max(salary) , median(employee_id)
+from employees
+group by  employee_id, first_name, last_name
+having median(employee_id)>200;
