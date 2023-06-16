@@ -1,0 +1,13 @@
+--1 
+select first_name, salary  from employees
+where salary>
+(select  avg(salary) from employees);
+
+--2 
+select  employee_id from employees 
+where employee_id=
+(select employee_id  from employees 
+group by department_id, employee_id
+having count(employee_id)>10
+) ; 
+//  isledi amma bir netice cixarmadi :( 
