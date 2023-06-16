@@ -1,0 +1,28 @@
+--JOINS
+
+select e.first_name, e.last_name , d.department_name 
+from employees e
+left join  departments d
+on e.department_id=d.department_id; 
+
+select e.employee_id, e.first_name, e.last_name , j.job_title 
+from employees e
+ right join  jobs j
+on e.job_id=j.job_id;
+
+select  d.department_name 
+from departments d
+full outer join  locations l
+on d.location_id=l.location_id ;
+ 
+select *from employees e 
+CROSS JOIN countries c;
+
+select  salary, job_title from employees ,jobs  
+where salary>8000
+
+
+
+ 
+
+
