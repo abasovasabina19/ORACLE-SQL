@@ -1,0 +1,14 @@
+--set operators 
+
+select salary from employees where salary between 3000 and 7000
+minus 
+select salary from employees where salary between 5000 and 7000
+intersect 
+select salary from employees where salary between 4000 and 8000 ;
+
+
+SELECT DEPARTMENT_ID FROM EMPLOYEES WHERE DEPARTMENT_ID BETWEEN 1 AND 100 
+UNION
+SELECT DEPARTMENT_ID  FROM DEPARTMENTS WHERE  DEPARTMENT_ID BETWEEN 50 AND 110
+UNION ALL
+SELECT DEPARTMENT_ID  FROM DEPARTMENTS WHERE  DEPARTMENT_ID BETWEEN 1 AN
