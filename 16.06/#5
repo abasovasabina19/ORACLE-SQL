@@ -1,0 +1,17 @@
+-- joins part 1
+ select * from employees e
+ inner join departments d 
+ on e.department_id= d.department_id;
+ 
+ select e.first_name  , m.first_name as "manager name" 
+ from employees e
+ join employees m
+ on e.manager_id=m.employee_id;
+ 
+  select *from  departments
+  natural join  locations; 
+  
+  
+  select *from  departments
+  join  locations
+  USING(location_id);
