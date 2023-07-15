@@ -1,0 +1,13 @@
+--1.Drop a table: Drop the 'Project_Details' table.--
+DROP TABLE PROJECT_DETAILS;
+
+--2.Insert operation with select: Insert into 'Employee_Details' table all the employees from 'Employees' table where the hire date is after '01-JAN-2021'.--
+
+ INSERT INTO EMPLOYEE_DETAILS(ID,NAME, DEPARTMENT_ID,SALARY) SELECT EMPLOYEE_ID, FIRST_NAME,DEPARTMENT_ID,SALARY FROM EMPLOYEES 
+ WHERE HIRE_DATE>'01-01-2021'
+ 
+ --3.Select with group by: Write a SELECT statement to get the job_id and the number of employees working in each job_id from the 'Employees' table.--
+ SELECT JOB_ID , COUNT(EMPLOYEE_ID) AS COUNT_EMPLOYEE FROM EMPLOYEES 
+ GROUP BY JOB_ID;
+ 
+ --4.Analytical Function: Write a query using the RANK function to return the salaries and rank of each employee based on their salary within their department.--
