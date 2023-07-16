@@ -12,3 +12,10 @@ select first_name from employees
 order by 1 asc;
 --4.SELECT with GROUP BY clause--
 --Write a SQL statement to find the total salary for each job title.--
+select *from jobs
+select  sum(min_salary) + sum(max_salary)as total_salary, job_title from jobs
+group by job_title;
+--5.SELECT with LIMIT clause--
+--Write a SQL statement to select the top 5 highest earning employees.--
+select first_name,salary from employees
+fetch first 5 rows only;
