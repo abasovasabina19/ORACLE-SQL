@@ -1,0 +1,14 @@
+--1.SELECT with DISTINCT clause--
+--Write a SQL statement to select all distinct job titles from the 'employees' table.--
+select  distinct job_title from employees e
+inner join jobs j
+on e.job_id=j.job_id;
+--2.SELECT with ALIAS--
+--Write a SQL statement to display the 'employee_id' as 'Employee ID' and 'first_name' as 'First Name' from the 'employees' table.--
+select employee_id as "Employee id" ,first_name as "First Name"  from employees;
+--3.SELECT with ORDER BY clause--
+--Write a SQL statement to select all employees' first names, sorted in ascending order.--
+select first_name from employees
+order by 1 asc;
+--4.SELECT with GROUP BY clause--
+--Write a SQL statement to find the total salary for each job title.--
