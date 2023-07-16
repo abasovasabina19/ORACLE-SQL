@@ -1,0 +1,17 @@
+--1.DDL Operation (CREATE)--
+--Write a SQL statement to create a new table named 'new_employees' that has the same structure as the 'employees' table.--
+
+create table new_employees as select *from employees;
+drop table new_employees;
+-- istesek ki sade struktur yaratsin cedvelin icini doldurmasin o zaman --
+create table new_employees as select *from employees where 1=2;
+select *from new_employees;
+--3.SELECT Statement--
+--Write a SQL statement to select all employees' first and last names and their department ids from the 'employees' table.--
+select first_name,last_name,department_id from employees;
+--4.Single Function (Character)--
+--Write a SQL statement to display the first name of all employees in lower case.--
+select lower(first_name) from employees;
+--5.Aggregate Function--
+--Write a SQL statement to find the average salary in the 'employees' table.--
+select avg(salary) from employees;
