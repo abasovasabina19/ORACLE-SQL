@@ -1,0 +1,10 @@
+--1.SELECT with multiple JOINS--
+--Write a SQL statement to display the employee's name, their manager's name and the department name.--
+select e.first_name, m.first_name as manager_name,department_name
+from employees e
+inner join employees m 
+on e.manager_id=m.employee_id
+inner join departments d
+on e.department_id=d.department_id;
+--2.SELECT with WHERE and OR clause--
+--Write a SQL statement to select all employees who are either 'IT_PROG' or 'SA_REP'.--
