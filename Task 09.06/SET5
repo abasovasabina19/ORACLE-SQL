@@ -11,3 +11,10 @@ DROP TABLE PROJECT_DETAILS;
  GROUP BY JOB_ID;
  
  --4.Analytical Function: Write a query using the RANK function to return the salaries and rank of each employee based on their salary within their department.--
+
+
+
+--5.Set operator: Write a query using UNION to return the job_ids from both the 'Jobs' and 'Job_History' tables.--
+select job_id from jobs
+union
+select job_id from job_history;
