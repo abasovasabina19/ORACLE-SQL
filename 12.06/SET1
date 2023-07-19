@@ -1,0 +1,1 @@
+--1.DDL operations: Create a copy of the "employees" table named "employees_backup" without including the data.--
