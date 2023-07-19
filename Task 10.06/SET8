@@ -8,3 +8,20 @@ inner join departments d
 on e.department_id=d.department_id;
 --2.SELECT with WHERE and OR clause--
 --Write a SQL statement to select all employees who are either 'IT_PROG' or 'SA_REP'.--
+select first_name from employees
+where job_id='IT_PROG' OR job_id='SA_REP';
+
+--3.SELECT with Aggregate Function and GROUP BY clause--
+--Write a SQL statement to find the average salary for each job title.--
+select avg(max_salary+min_salary) as avg_salary , job_title from jobs
+group by job_title;
+--4.SELECT with Subquery in WHERE clause--
+--Write a SQL statement to select all employees who earn more than the average salary.--
+select first_name,salary from employees
+where salary>
+(select avg(salary) from employees);
+--5.SELECT with UNION clause--
+--Write a SQL statement to combine the list of all department IDs in 'employees' and 'departments' table.--
+select department_id from departments
+union all
+select department_id from employees;
