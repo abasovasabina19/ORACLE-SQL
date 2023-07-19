@@ -1,0 +1,20 @@
+--1.SELECT with JOIN and USING clause--
+--Write a SQL statement to display the employee's full name and department name using the 'department_id' field.--
+select e.first_name, e.last_name, d.department_name
+from employees e
+JOIN departments d
+USING(department_id);
+--2.SELECT with CASE statement--
+--Write a SQL statement to categorize employees' salaries into 'Low', 'Medium' and 'High'.--
+select salary,
+case
+when salary>10000 then 'HIGH'
+when salary=10000 then 'MEDIUM'
+ELSE 'LOW'
+END
+AS X
+FROM EMPLOYEES;
+--4.SELECT with WHERE and NULL clause--
+--Write a SQL statement to find all employees with no commission_pct.--
+select  commission_pct, first_name from employees
+where commission_pct is null;
