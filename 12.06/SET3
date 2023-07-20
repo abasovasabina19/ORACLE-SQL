@@ -1,0 +1,21 @@
+--1.SELECT statement: Select the last_name, job_id, and department_id from the "employees" table where the last_name like 'S%'.--
+select last_name,job_id,department_id from employees
+where last_name like 'S%';
+--2.Single Function (Analytical): Use the RANK() function to display employees' salary ranking within their department.--
+select  first_name, salary, rank() over(partition by department_id order by salary) as salary_rank from employees;
+--3.Aggregate Functions: Find the highest, lowest, and average number of employees in each job from the "employees" table.--
+SELECT 
+  job_id ,
+  MAX(employee_count) AS highest_employee_count,
+  MIN(employee_count) AS lowest_employee_count,
+  AVG(employee_count) AS average_employee_count
+FROM (
+  SELECT job_id, COUNT(employee_id) AS employee_count
+  FROM employees
+  GROUP BY job_id) 
+GROUP BY job_id;
+--4.Joins: Write a query that FULL OUTER JOINs the "employees" table with the "departments" table and displays the employee's first name, last name, and department name.--
+select first_name,last_name,department_name
+from employees e
+full outer join departments d
+on e.department_id=d.department_id;
