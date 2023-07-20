@@ -1,1 +1,40 @@
 --1.Set Operators: Use the MINUS operator to display all employees in the "employees" table who have never been a manager (based on the manager_id column).--
+SELECT employee_id, first_name
+FROM employees
+WHERE employee_id NOT IN (
+    SELECT manager_id
+    FROM employees
+    WHERE manager_id IS NOT NULL);
+    
+--2.Joins: Write a query that INNER JOINs the "employees" table with the "jobs" table and displays the employee's first name, last name, and job title.--
+select first_name, last_name, job_title
+from employees e
+inner join jobs j
+on j.job_id=e.job_id;
+--3.SELECT statement: Select the first_name, last_name, salary, and department_id from the "employees" table where the salary is not in the top 5 salaries.--
+select first_name,
+last_name
+salary,
+department_id
+from employees
+where salary not in(
+select salary from employees
+fetch first 5 rows only);
+--4.DDL operations: Create a new table called "employee_projects" that includes the following columns: "project_id" (integer), --
+--"employee_id" (integer), "start_date" (date), "end_date" (date), "role" (varchar).--
+create table employee_projects(
+project_id int,
+employee_id int,
+start_date date,
+end_date date,
+role varchar(100) 
+);
+--5.DML operations (UPDATE): In the "employees_backup" table, set the commission_pct to 0 for all employees who don't have a commission_pct.--
+update employees_backub 
+set commission_pct=nvl(commission_pct , 0) ;
+rollback;
+
+update employees_backub
+set commission_pct =0
+where commission_pct is null;
+
