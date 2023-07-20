@@ -1,0 +1,14 @@
+--1.DDL operations: Alter the "employees_backup" table by dropping the "performance_score" column.--
+alter table employees_backub drop column performance_score ;
+--3.Single Function (Number): Use the ROUND function to round the salary of all employees to the nearest hundred in the "employees" table.--
+select salary, round(salary,-2) from employees;
+--4.Aggregate Functions: Find the department with the highest number of employees in the "employees" table.--
+select department_id,
+max(count_employee)
+from
+(select department_id, count(employee_id) as count_employee from employees
+group by department_id)
+group by department_id
+fetch first rows only;
+--5.Conversion Functions: Display the hire_date of all employees in the "employees" table in the format 'YYYY-Q' where Q represents the quarter of the year.--
+select first_name,  to_char(hire_date,'YYYY-Q') from employees;
