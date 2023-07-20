@@ -1,1 +1,22 @@
 --1.DDL operations: Create a copy of the "employees" table named "employees_backup" without including the data.--
+create table  employees_backub as select *from employees;
+select*from employees_backub;
+
+--2.DML operations (UPDATE): Update the salary of all employees in the "employees_backup" table by adding a 15% raise for those who were hired in the year 2000.--
+update employees_backub
+set salary=salary*1.15
+where extract(year from hire_date)=2000;
+--3.Single Function (Date): List all employees in the "employees" table who were hired on a Friday.--
+SELECT first_name, hire_date
+FROM employees
+WHERE TO_CHAR(hire_date, 'DAY') = 'Friday';
+
+--4.Aggregate Functions: Calculate the total salary paid per job in the "employees" table.--
+select sum(salary), job_id from employees
+group by job_id;
+--5.Joins: Using a LEFT JOIN, list all departments from the "departments" table and the count of employees in each department from the "employees" table.--
+select department_name, count(employee_id) as count_employee from
+departments d
+left join employees e
+on d.department_id=e.department_id
+group by department_name;
