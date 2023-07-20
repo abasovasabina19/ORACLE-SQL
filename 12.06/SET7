@@ -1,0 +1,23 @@
+--1.DML operations (DELETE): Delete all employees in the "employees_backup" table who were hired in the second half of the year (July to December).--
+DELETE FROM EMPLOYEES_BACKUB
+WHERE EXTRACT(MONTH FROM hire_date) BETWEEN '07' AND '12';
+
+---2.Set Operators: Use the UNION ALL operator to list all country_id values from both the "locations" and "countries" tables.--
+SELECT COUNTRY_ID FROM LOCATIONS
+UNION ALL
+SELECT COUNTRY_ID FROM COUNTRIES;
+--3.Single Function (Analytical): Display the dense rank of employees based on salary within their department in the "employees" table.--
+SELECT FIRST_NAME, SALARY,
+DENSE_RANK() OVER(PARTITION BY DEPARTMENT_ID ORDER BY SALARY ) AS RANK_SALARY FROM EMPLOYEES;
+--4.Conversion Functions: Display the length of service for each employee in the "employees" table in years and months.--
+
+SELECT
+    employee_id,
+    first_name,
+    last_name,
+    hire_date,
+    TRUNC(MONTHS_BETWEEN(SYSDATE, hire_date) / 12) AS years_of_service,
+    MOD(MONTHS_BETWEEN(SYSDATE, hire_date), 12) AS months_of_service
+FROM
+    employees;
+    
