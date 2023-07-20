@@ -1,0 +1,1 @@
+--1.Set Operators: Use the MINUS operator to display all employees in the "employees" table who have never been a manager (based on the manager_id column).--
