@@ -30,9 +30,6 @@ end_date date,
 role varchar(100) 
 );
 --5.DML operations (UPDATE): In the "employees_backup" table, set the commission_pct to 0 for all employees who don't have a commission_pct.--
-update employees_backub 
-set commission_pct=nvl(commission_pct , 0) ;
-rollback;
 
 update employees_backub
 set commission_pct =0
