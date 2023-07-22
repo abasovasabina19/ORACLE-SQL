@@ -1,0 +1,13 @@
+--1.DDL operations: Drop the "projects" table.--
+drop table projects;
+--4.Set Operators: Use the INTERSECT operator to find all department_ids that are present in both the "employees" and "departments" tables.--
+select department_id from employees
+intersect
+select department_id from departments;
+--5.Joins: Write a query that joins the "employees" table and the "departments" table and displays the employee's first name, --
+--last name, and department name, only for those departments that have more than 50 employees.--
+select  count(employee_id ), first_name,last_name,department_name from employees e
+inner join departments d
+on e.department_id=d.department_id
+group by first_name,last_name,department_name
+having count(employee_id)>50;
