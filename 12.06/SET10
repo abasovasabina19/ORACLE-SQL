@@ -1,0 +1,5 @@
+--1.DML operations (UPDATE): Update the "employees_backup" table by giving a 10% salary increase to--
+--those employees whose job_id is 'SA_REP' and who were hired after the year 2005.--
+update employees_backub
+set salary=salary*1.1 
+where job_id='SA_REP' and extract(year from hire_date)>'2005';
