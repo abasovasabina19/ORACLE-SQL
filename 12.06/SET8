@@ -1,0 +1,17 @@
+--1.SELECT statement: Select all fields from the "employees" table for employees whose first name contains the letter 'e' at least twice.--
+select first_name from  employees
+where first_name like '%e%e%';
+
+--2.Joins: Write a query that RIGHT JOINs the "employees" table with the "departments" table and displays the employee's first name, last name, and department name.--
+select first_name, last_name, department_name from employees e
+right join departments d
+on e.department_id=d.department_id;
+
+--3.DDL operations: Rename the "employee_projects" table to "projects".-- 
+ALTER TABLE employee_projects RENAME TO projects;
+--4.Aggregate Functions: For each job_id in the "employees" table, find the difference between the maximum and minimum salaries.--
+SELECT JOB_ID , MAX(SALARY)-MIN(SALARY) AS DIFFERENCE FROM EMPLOYEES
+GROUP BY JOB_ID;
+--5.DML operations (INSERT): Insert a new record into the "projects" table. Use your own discretion for the values.--
+INSERT INTO PROJECTS VALUES(1,1,'12.04.2023','30.12.2023','ROLE',123);
+SELECT *FROM PROJECTS;
