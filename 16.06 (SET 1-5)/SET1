@@ -1,0 +1,4 @@
+--1.(Scalar Subquery) Find employees who have a salary above the average salary of all employees--
+SELECT FIRST_NAME FROM EMPLOYEES
+WHERE SALARY>
+(SELECT AVG(SALARY) FROM EMPLOYEES);
