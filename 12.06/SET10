@@ -3,3 +3,22 @@
 update employees_backub
 set salary=salary*1.1 
 where job_id='SA_REP' and extract(year from hire_date)>'2005';
+
+--2.Aggregate Functions: Find the median salary for the 'IT_PROG' job in the "employees" table.--
+select median(salary)  from employees
+where job_id='IT_PROG';
+--3.Single Function (Date): List the employees in the "employees" table who have been hired in the last 365 days.--
+
+SELECT * 
+FROM employees 
+WHERE hire_date >= SYSDATE - INTERVAL '1' YEAR;
+
+SELECT * 
+FROM employees 
+WHERE hire_date >= SYSDATE - 365;
+--4.Conversion Functions: Convert the hire_date in the "employees" table to 'Day, DD-Month-YYYY' format.--
+SELECT TO_CHAR(HIRE_DATE, 'DD-MM-YYYY') FROM EMPLOYEES;
+--5.SELECT statement: Display the employees' last names and the length of the names from the "employees" table.--
+--Order the result by the length of the names in descending order.--
+SELECT LENGTH(LAST_NAME), LENGTH(FIRST_NAME) FROM EMPLOYEES
+ORDER BY 2 DESC;
