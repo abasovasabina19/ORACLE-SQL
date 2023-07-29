@@ -20,4 +20,11 @@ SELECT
     MOD(MONTHS_BETWEEN(SYSDATE, hire_date), 12) AS months_of_service
 FROM
     employees;
+--5.Subqueries: Find the job title of the employee who earns the second highest salary in the "employees" table.
+select first_name, job_id, salary from employees
+where salary<
+(select max(salary) from employees)
+fetch first 1 rows only;
+
+
     
