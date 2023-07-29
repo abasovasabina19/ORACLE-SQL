@@ -1,0 +1,21 @@
+--1.(WHERE/HAVING Subquery) Identify departments where the average salary is above 5000.
+
+select avg(salary),department_id from employees
+group by department_id
+having avg(salary)>5000;
+--subquery ehtiyac yoxdur
+--2.(WHERE/HAVING Subquery) Discover departments where the maximum salary is greater than the average salary of all departments.
+select department_id,
+max(salary) as max_salary
+from employees e
+where salary>
+(select avg(salary) from employees e1
+where e.department_id=e1.department_id
+group by department_id)
+group by department_id;
+--3.(WHERE/HAVING Subquery) Find departments where the average tenure is above 5 years.
+SELECT department_id
+FROM employees
+GROUP BY department_id
+HAVING AVG(MONTHS_BETWEEN(SYSDATE, hire_date)) / 12 > 5;
+--subquery ehtiyac yoxdur
