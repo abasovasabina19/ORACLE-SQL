@@ -1,5 +1,11 @@
 --1.Conversion Functions: Show the job_id in the "jobs" table in all uppercase--
 select upper(job_id) from jobs;
+--2.Subqueries: Find all employees in the "employees" table whose salary is above the average salary of their respective departments.
+select first_name ,department_id ,salary from employees e
+where salary>
+(select  avg(salary) from employees e1
+where e.department_id=e1.department_id
+group by department_id )
 --3.Set Operators: Use the UNION operator to create a list of all unique job_ids from both the "employees" and "job_history" tables.--
 select job_id from employees
 union 
