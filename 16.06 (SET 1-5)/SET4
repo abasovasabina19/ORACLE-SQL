@@ -1,0 +1,17 @@
+--1.(IN Subquery) Generate a list of department IDs where the number of employees is more than 10, and then find all employees working in these departments.
+
+SELECT first_name
+FROM employees
+WHERE department_id IN (
+    SELECT department_id
+    FROM employees
+    GROUP BY department_id
+    HAVING COUNT(*) > 10
+);
+--4.(IN Subquery) Generate a list of job titles which have more than 10 holders, and find all employees holding these job titles.
+select employee_id,first_name,last_name,job_id
+from employees
+where job_id in
+(select job_id from employees
+group by job_id
+having count(*)>10);
