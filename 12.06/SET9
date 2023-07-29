@@ -1,5 +1,10 @@
 --1.DDL operations: Drop the "projects" table.--
 drop table projects;
+--3.Subqueries: Write a query to find all employees whose manager earns more than the average salary of all managers in the "employees" table.
+select employee_id, manager_id ,salary from employees
+where salary>
+(select  avg(salary) from employees);
+
 --4.Set Operators: Use the INTERSECT operator to find all department_ids that are present in both the "employees" and "departments" tables.--
 select department_id from employees
 intersect
