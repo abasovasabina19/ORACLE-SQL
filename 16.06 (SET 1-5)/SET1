@@ -2,3 +2,42 @@
 SELECT FIRST_NAME FROM EMPLOYEES
 WHERE SALARY>
 (SELECT AVG(SALARY) FROM EMPLOYEES);
+
+--2.(Scalar Subquery) Identify the employees who work in a department with more than 10 employees.
+--Mence bu column subquerydi, cunki scalar subquery 1 setir 1 sutun qaytarirdi.
+    
+SELECT employee_id, first_name, last_name
+FROM employees
+WHERE department_id IN (
+    SELECT department_id
+    FROM employees
+    GROUP BY department_id
+    HAVING COUNT(*) > 10
+);
+--baska bi yolla correlated subquery yazmaq olar.
+SELECT employee_id, first_name, last_name
+FROM employees e
+WHERE department_id = (
+    SELECT department_id
+    FROM employees
+    WHERE department_id = e.department_id
+    GROUP BY department_id
+    HAVING COUNT(*) > 10
+);
+
+--4.(Scalar Subquery) Discover employees who have a commission percentage above the average.
+select first_name, concat(100*commission_pct, '%') from employees
+where commission_pct*100>
+(select avg(commission_pct)*100 from employees);
+--5.(Scalar Subquery) Determine employees whose salary is higher than the average salary for their job title.
+select *from employees;
+select*from jobs;
+
+select first_name from employees e1
+where salary >(
+select avg(salary)  from employees e
+JOIN  jobs j
+on e.job_id=j.job_id
+where e1.job_id=j.job_id
+group by  job_title);
+
