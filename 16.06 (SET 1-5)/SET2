@@ -1,0 +1,16 @@
+--2.(Correlated Subquery) Compute the maximum, minimum, and average salary across all departments.
+select department_id,
+MAX(salary) as max_salary,
+MIN(salary) as min_salary,
+AVG(salary) as avg_salary
+from employees e 
+where salary in
+(select  salary from employees e1
+where e.department_id=e1.department_id)
+group by department_id;
+--4.(Correlated Subquery) Identify the total salary expenditure for each job title across the company.
+select sum(salary), job_title from employees e
+JOIN jobs j
+on e.job_id=j.job_id
+group by job_title;
+--subquery isletmeye ehtiyac yoxdur
