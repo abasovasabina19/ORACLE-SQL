@@ -35,7 +35,7 @@ O, mövcud obyektlərə göstəricilər yaratmağa və onlardan PL/SQL kodu daxi
 Summary: REF CURSOR dinamik sorğular üçün, REF isə obyektlərə istinad etmək üçün istifadə olunur.
 4.CLOB (Character Large Object) məlumat növü mətn sənədləri, XML məlumatları və ya
 digər mətn məlumatları kimi böyük həcmli xarakter məlumatlarını saxlamaq üçün istifadə olunur. 4 GB-a qədər məlumat saxlaya bilər.
-CLOB  dəyəri 2,147,483,647 simvol uzunluğunda ola bilər. CLOB istənilən simvol dəstində böyük sənədlər kimi unicode xarakterə əsaslanan məlumatları saxlamaq üçün
+CLOB istənilən simvol dəstində böyük sənədlər kimi unicode xarakterə əsaslanan məlumatları saxlamaq üçün
 istifadə olunur.
 5.VARRAY (Dəyişən Ölçü Massivi):
 VARRAY eyni tipli elementlərin sabit ölçülü, sifarişli toplusudur.
