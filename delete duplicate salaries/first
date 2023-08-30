@@ -1,0 +1,14 @@
+select salary, rowid from employees where salary in(
+select salary 
+from employees group by salary having count(*)>1); -- tekrarlanan salaryleri silmek isteyirik 
+
+
+DELETE FROM employees
+WHERE rowid NOT IN (
+    SELECT MIN(rowid)
+    FROM employees
+    GROUP BY salary
+    HAVING COUNT(*) > 1);
+    -- integrity constraint xetasi bas verir
+
+    
