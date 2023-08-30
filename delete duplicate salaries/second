@@ -1,0 +1,8 @@
+DELETE FROM employees
+WHERE rowid IN (
+SELECT rowid
+FROM (
+SELECT rowid,
+ROW_NUMBER() OVER (PARTITION BY salary ORDER BY rowid) AS row_num
+FROM employees)
+    WHERE row_num > 1);
